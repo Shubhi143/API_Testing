@@ -16,7 +16,7 @@ import io.restassured.RestAssured;
 
 public class AppTest {
 
-    @Test
+    @Test(priority=1)
     public void getRequest() {
         System.out.println("testCase 1 - GET request");
         RestAssured.baseURI = "https://dummyjson.com/products";
@@ -29,7 +29,7 @@ public class AppTest {
        JsonPath jsonPath = response.jsonPath();
        assertThat(jsonPath.getList("products"), is(not(empty())));
     }
-    @Test 
+    @Test (priority=2)
     public void getRequestWithParam() {
         System.out.println("testCase 2 - GET request with param");
         RestAssured.baseURI = "https://dummyjson.com/products";
@@ -45,7 +45,7 @@ public class AppTest {
   
     
 }
-@Test 
+@Test (priority=3)
 public void PostRequest(){
     System.out.println("testCase 3 - POST request");
     RestAssured.baseURI = "https://dummyjson.com/products";
@@ -63,7 +63,7 @@ public void PostRequest(){
         assertEquals(jsonPath.getString("title"), "BMW Pencil", "Title does not match");
 }
 
-@Test 
+@Test (priority=4)
 public void PutRequest(){
     System.out.println("testCase 4- POST request");
     RestAssured.baseURI = "https://dummyjson.com/products";
@@ -83,7 +83,7 @@ public void PutRequest(){
   
   
 }
-@Test
+@Test(priority=5)
 public void DeleteRequest(){
     System.out.println("testCase 5 - POST request");
     RestAssured.baseURI = "https://dummyjson.com/products";

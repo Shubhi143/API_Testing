@@ -4,6 +4,13 @@
     <test name = "SimpleTest">
         <classes>
             <class name = "org.example.AppTest"/>
+              <methods>
+                    <include name="getRequest"></include>
+                    <include name="getRequestWithParam"></include>
+                    <include name="PostRequest"></include>
+                    <include name="PutRequest"></include>
+                    <include name="DeleteRequest"></include>
+                </methods>
         </classes>
     </test>
 </suite>
